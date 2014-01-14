@@ -22,4 +22,3 @@ class BeardedOctoNinja(DifferentialWheels):
         pass
 
     
-

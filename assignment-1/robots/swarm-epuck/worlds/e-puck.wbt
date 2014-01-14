@@ -268,7 +268,7 @@ Solid {
 DEF E_PUCK EPuck {
   translation 0.2 0 0.25
   rotation 0 1 0 1.57
-  controller "webann"
+  controller "bearded-octoninja"
   name "e-puck camera"
   camera_windowPosition 0.75 0.75
   camera_fieldOfView 0.6
