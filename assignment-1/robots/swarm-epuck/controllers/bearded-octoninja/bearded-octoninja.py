@@ -5,8 +5,6 @@ import Image               # An extra Python module (that you'll have to downloa
 import imagepro            # A module provided by Keith Downing for this assignment
 
 
-"""avoid obstacles"""
-
 class BeardedOctoNinja(DifferentialWheels):
 
 	def basic_setup(self, tempo = 1.0):
@@ -19,25 +17,34 @@ class BeardedOctoNinja(DifferentialWheels):
     	self.dist_sensor_values = [0 for i in range(self.num_dist_sensors)]
     	self.dist_sensors = [self.getDistanceSensor('ps'+str(x)) for x in range(self.num_dist_sensors)]  # distance sensors
     	map((lambda s: s.enable(self.timestep)), self.dist_sensors) # Enable all distance sensors
+    	self.speed = 0.0
+    	self.rotation_speed = 0.0
 
+
+    #
+    # Movement
+    #
+
+    def _update_wheel_speeds(self):
+        left_wheel_speed = self.speed * (0.5 + self.rotation_speed)
+        right_wheel_speed = self.speed * (0.5 - self.rotation_speed)
+        self.setSpeed(1000 * left_wheel_speed,
+                      1000 * right_wheel_speed)
 
     def set_speed(self, speed):
-        """moving either forward or backwards"""
-        pass
+        self.speed = speed
+        self._update_wheel_speeds()
+
+    def set_rotation_speed(self, rotation_speed):
+        self.rotation_speed = rotation_speed
+        self._update_wheel_speeds()
     
     def accelerate(self, acceleration):
-        """increment speed"""
-        pass
+        self.set_speed(self.speed + acceleration)
 
     def stop(self):
-        """stops the epuck"""
-        pass 
-
-    def set_rotation(self, rotations_speed):
-        """ passing in rotationspeed and calculates speed on left/ and right wheel """
-        pass
-  
-
+        self.set_speed(0)
+        self.set_rotation_speed(0)
 
     #
     # Sensors and Camera
@@ -62,3 +69,6 @@ class BeardedOctoNinja(DifferentialWheels):
         im = Image.fromstring('RGB',(self.camera.getWidth(), self.camera.getHeight()), strImage)
         return im
 
+
+controller = BeardedOctoNinja()
+controller.basic_setup()
