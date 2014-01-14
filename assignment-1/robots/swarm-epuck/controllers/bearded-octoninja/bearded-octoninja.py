@@ -7,18 +7,18 @@ import imagepro            # A module provided by Keith Downing for this assignm
 
 class BeardedOctoNinja(DifferentialWheels):
 
-	def basic_setup(self, tempo = 1.0):
-    	self.timestep = int(self.getBasicTimeStep()) # Fetched from WorldInfo.basicTimeStep (in the Webots world)
-    	self.tempo = tempo
-    	self.enableEncoders(self.timestep)
-    	self.camera = self.getCamera('camera')
-    	self.camera.enable(4*self.timestep)
-    	print "Camera width: " , self.camera.getWidth()
-    	self.dist_sensor_values = [0 for i in range(self.num_dist_sensors)]
-    	self.dist_sensors = [self.getDistanceSensor('ps'+str(x)) for x in range(self.num_dist_sensors)]  # distance sensors
-    	map((lambda s: s.enable(self.timestep)), self.dist_sensors) # Enable all distance sensors
-    	self.speed = 0.0
-    	self.rotation_speed = 0.0
+    def basic_setup(self, tempo = 1.0):
+        self.timestep = int(self.getBasicTimeStep()) # Fetched from WorldInfo.basicTimeStep (in the Webots world)
+        self.tempo = tempo
+        self.enableEncoders(self.timestep)
+        self.camera = self.getCamera('camera')
+        self.camera.enable(4*self.timestep)
+        print "Camera width: " , self.camera.getWidth()
+        self.dist_sensor_values = [0 for i in range(self.num_dist_sensors)]
+        self.dist_sensors = [self.getDistanceSensor('ps'+str(x)) for x in range(self.num_dist_sensors)]  # distance sensors
+        map((lambda s: s.enable(self.timestep)), self.dist_sensors) # Enable all distance sensors
+        self.speed = 0.0
+        self.rotation_speed = 0.0
 
 
     #
