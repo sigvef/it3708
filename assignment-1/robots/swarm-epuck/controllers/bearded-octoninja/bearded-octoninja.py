@@ -1,4 +1,8 @@
 from controller import *   # controller comes with Webots
+import time                # A Python primitive module
+import math                #   "            "
+import Image               # An extra Python module (that you'll have to download)
+import imagepro            # A module provided by Keith Downing for this assignment
 
 
 """avoid obstacles"""
