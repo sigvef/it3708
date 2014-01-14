@@ -31,8 +31,16 @@ class BeardedOctoNinja(DifferentialWheels):
     def _update_wheel_speeds(self):
         left_wheel_speed = self.speed * (0.5 + self.rotation_speed)
         right_wheel_speed = self.speed * (0.5 - self.rotation_speed)
-        self.setSpeed(1000 * left_wheel_speed,
-                      1000 * right_wheel_speed)
+        if left_wheel_speed > 1000:
+            ratio = 1000 / left_wheel_speed
+            left_wheel_speed = 1000
+            right_wheel_speed *= ratio
+        if right_wheel_speed > 1000:
+            ratio = 1000 / right_wheel_speed
+            right_wheel_speed = 1000
+            left_wheel_speed *= ratio
+        self.setSpeed(left_wheel_speed,
+                      right_wheel_speed)
 
     def set_speed(self, speed):
         self.speed = speed
@@ -55,9 +63,7 @@ class BeardedOctoNinja(DifferentialWheels):
 
     # Returns proximities
     def get_proximities(self):
-        for i in range(self.num_dist_sensors):
-            self.dist_sensor_values[i] = self.dist_sensors[i].getValue()
-            return self.dist_sensor_values
+        return [sensor.getValue() for sensor in self.dist_sensors]
 
     # Returns parsed image
     def snapshot(self, show = False):
@@ -73,5 +79,21 @@ class BeardedOctoNinja(DifferentialWheels):
         return im
 
 
+    #
+    # Simulation loop
+    #
+    def simulate(self):
+        THRESHOLD = 220
+        self.set_speed(2000)
+        while self.step(1) != -1:
+            proximities = self.get_proximities()
+            left_sensors = proximities[:4]
+            right_sensors = proximities[4:]
+            left_walls = max(sum(left_sensors), THRESHOLD)
+            right_walls = max(sum(right_sensors), THRESHOLD)
+            maximum = max(left_walls, right_walls) + 1
+            self.set_rotation_speed((right_walls - left_walls) / maximum)
+
 controller = BeardedOctoNinja()
 controller.basic_setup()
+controller.simulate()
