@@ -3,7 +3,7 @@ import time                # A Python primitive module
 import math                #   "            "
 import Image               # An extra Python module (that you'll have to download)
 import imagepro            # A module provided by Keith Downing for this assignment
-
+from behaviours import wander, avoid_objects
 
 class BeardedOctoNinja(DifferentialWheels):
 
@@ -78,21 +78,27 @@ class BeardedOctoNinja(DifferentialWheels):
         im = Image.fromstring('RGB',(self.camera.getWidth(), self.camera.getHeight()), strImage)
         return im
 
+    def get_sensors(self):
+        sensors = {
+            'proximity': self.get_proximities(),
+        }
+        return sensors
+
+    def apply_actuators(self, actuators):
+        self.set_speed(actuators['speed'])
+        self.set_rotation_speed(actuators['rotation_speed'])
 
     #
     # Simulation loop
     #
     def simulate(self):
-        THRESHOLD = 220
-        self.set_speed(2000)
         while self.step(1) != -1:
-            proximities = self.get_proximities()
-            left_sensors = proximities[:4]
-            right_sensors = proximities[4:]
-            left_walls = max(sum(left_sensors), THRESHOLD)
-            right_walls = max(sum(right_sensors), THRESHOLD)
-            maximum = max(left_walls, right_walls) + 1
-            self.set_rotation_speed((right_walls - left_walls) / maximum)
+            actuators = {}
+            sensors = self.get_sensors()
+            wander(sensors, actuators)
+            avoid_objects(sensors, actuators)
+            self.apply_actuators(actuators)
+
 
 controller = BeardedOctoNinja()
 controller.basic_setup()
