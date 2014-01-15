@@ -1,3 +1,7 @@
+def wander(sensors, actuators):
+    actuators['rotation_speed'] = 0
+    actuators['speed'] = 2000
+
 
 def avoid_objects(sensors, actuators):
     threshold = 220
@@ -9,6 +13,17 @@ def avoid_objects(sensors, actuators):
     actuators['rotation_speed'] = (right_walls - left_walls) / maximum
 
 
-def wander(sensors, actuators):
-    actuators['rotation_speed'] = 0
-    actuators['speed'] = 2000
+def converge(seonsors, actuators):
+	pass
+
+
+def retrieve(sensors, actuators):
+	pass
+
+
+def realign(sensors, actuators):
+	pass
+
+
+def reposition(sensors, actuators):
+	pass

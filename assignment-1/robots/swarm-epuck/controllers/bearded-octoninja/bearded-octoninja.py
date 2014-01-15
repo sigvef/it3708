@@ -1,6 +1,7 @@
 from controller import DifferentialWheels
-import Image
-from behaviours import wander, avoid_objects
+from PIL import Image
+from behaviours import wander, avoid_objects, \
+    converge, retrieve, realign, reposition
 
 
 class BeardedOctoNinja(DifferentialWheels):
@@ -94,8 +95,14 @@ class BeardedOctoNinja(DifferentialWheels):
         while self.step(1) != -1:
             actuators = {}
             sensors = self.get_sensors()
+
             wander(sensors, actuators)
             avoid_objects(sensors, actuators)
+            converge(sensors, actuators)
+            retrieve(sensors, actuators)
+            realign(sensors, actuators)
+            reposition(sensors, actuators)
+
             self.apply_actuators(actuators)
 
 
