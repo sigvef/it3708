@@ -14,16 +14,16 @@ def avoid_objects(sensors, actuators):
 
 
 def converge(seonsors, actuators):
-	pass
+    pass
 
 
 def retrieve(sensors, actuators):
-	pass
+    pass
 
 
 def realign(sensors, actuators):
-	pass
+    pass
 
 
 def reposition(sensors, actuators):
-	pass
+    pass
