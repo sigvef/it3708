@@ -61,3 +61,7 @@ class Epuck(DifferentialWheels):
     def set_rotation_speed(self, rotation_speed):
         self.rotation_speed = rotation_speed
         self._update_wheel_speeds()
+
+    def turn_on_leds(self):
+        for led in [self.getLED('led' + str(i)) for i in range(8)]:
+            led.set(1)

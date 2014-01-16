@@ -7,6 +7,7 @@ class BeardedOctoNinja(Epuck):
 
     def __init__(self):
         super(BeardedOctoNinja, self).__init__()
+        self.turn_on_leds()
         self.behaviours = [
             wander,
             avoid_objects,
