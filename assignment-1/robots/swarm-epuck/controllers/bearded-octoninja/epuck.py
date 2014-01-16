@@ -7,7 +7,8 @@ class Sensors(object):
     def __init__(self, epuck):
         self.proximity = [epuck.getDistanceSensor('ps' + str(x))
                           for x in range(8)]
-        for sensor in self.proximity:
+        self.light = [epuck.getLightSensor('ls' + str(i)) for i in range(8)]
+        for sensor in self.proximity + self.light:
             sensor.enable(int(epuck.getBasicTimeStep()))
         self.camera = epuck.getCamera('camera')
         self.camera.enable(int(4 * epuck.getBasicTimeStep()))
