@@ -5,7 +5,7 @@ from PIL import Image
 class Sensors(object):
 
     def __init__(self, epuck):
-        self.proximity = [epuck.getDistanceSensor('ps'+str(x))
+        self.proximity = [epuck.getDistanceSensor('ps' + str(x))
                           for x in range(8)]
         for sensor in self.proximity:
             sensor.enable(int(epuck.getBasicTimeStep()))
