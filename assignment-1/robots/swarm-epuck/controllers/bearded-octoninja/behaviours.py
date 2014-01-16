@@ -5,8 +5,8 @@ def wander(sensors, actuators):
 
 def avoid_objects(sensors, actuators):
     threshold = 250
-    left_sensors = [sensor.getValue() for sensor in sensors.proximity[4:]]
-    right_sensors = [sensor.getValue() for sensor in sensors.proximity[:4]]
+    left_sensors = [sensor.getValue() for sensor in sensors.proximity[5:]]
+    right_sensors = [sensor.getValue() for sensor in sensors.proximity[:3]]
     left_walls = max(sum(left_sensors), threshold)
     right_walls = max(sum(right_sensors), threshold)
     maximum = max(left_walls, right_walls) + 1
