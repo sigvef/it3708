@@ -12,6 +12,7 @@ class Sensors(object):
             sensor.enable(int(epuck.getBasicTimeStep()))
         self.camera = epuck.getCamera('camera')
         self.camera.enable(int(4 * epuck.getBasicTimeStep()))
+        self.accelerometer = epuck.getAccelerometer("accelerometer");
 
     def get_image(self):
         strImage = self.camera.getImage()
