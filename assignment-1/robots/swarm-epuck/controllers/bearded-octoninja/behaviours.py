@@ -1,5 +1,6 @@
 import imagepro
 import random
+import math
 def wander(sensors, actuators):
     actuators.set_rotation_speed(0)
     actuators.set_speed(2000)
@@ -47,6 +48,9 @@ def retrieve(sensors, actuators):
     else:
         sensors.epuck.turn_off_pushingleds()
 
+
+    
+def realign(sensors, actuators):
     # threshold = 0
     # img = sensors.get_image()
     # list = imagepro.columns_max_spikes_green(img, band="green").tolist()
@@ -58,21 +62,19 @@ def retrieve(sensors, actuators):
 
     # elif left < right:
     #     actuators.set_rotation_speed(0.5)
-
-    
-def realign(sensors, actuators):
     pass
+    
 
 
 def reposition(sensors, actuators):
-    # front_sensors = [sensor.getValue() for sensor in [sensors.proximity[0], sensors.proximity[7]]]
-    # accelerometer = sensors.accelerometer
-    # values = accelerometer.getValues()
-    # if (sum(front_sensors) > 800 and (values[0] + values[1]) < 0.05):
-    #     if (random.random() < 0.05):
-    #         while(sensors.epuck.step(64) < 100):
-    #             avoid_objects(sensors, actuators)
-    # pass
+    front_sensors = [sensor.getValue() for sensor in [sensors.proximity[0], sensors.proximity[7]]]
+    accelerometer = sensors.accelerometer
+    values = accelerometer.getValues()
+    if (sum(front_sensors) > 800 and math.fabs(values[0] + values[1]) < 0.10):
+            sensors.epuck.step(3000)
+            converge(sensors, actuators)
+            avoid_objects(sensors, actuators)
+    pass
 
 
 
