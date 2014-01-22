@@ -13,15 +13,13 @@ class BeardedOctoNinja(Epuck):
             converge,
             retrieve,
             realign,
-            reposition
+            reposition,
         ]
 
     def simulate(self):
         while self.step(1) != -1:
             for behaviour in self.behaviours:
                 behaviour(self.sensors, self.actuators)
-                
-
 
 
 controller = BeardedOctoNinja()
