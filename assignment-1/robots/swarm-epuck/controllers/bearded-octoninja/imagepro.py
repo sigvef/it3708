@@ -14,6 +14,8 @@ def get_scaled_red(image,x,y,maxval = 256.0): return get_red(image,x,y) / maxval
 def get_red_image(image): return image.split()[0]
 
 def get_green(image,x,y): return image.getpixel((x,y))[1]
+
+
 def get_scaled_green(image,x,y,maxval = 256.0): return get_green(image,x,y) / maxval
 def get_green_image(image): return image.split()[1]
 
@@ -34,8 +36,10 @@ def get_bw(image,x,y): return image.getpixel((x,y)) # Returns either 255 (white)
 def image_list(image): return list(image.getdata())
 
 # This compares two pixels and computes the mean square error between them.  For RGB images, these
-# pixels are triples, whereas black-white or grayscale pixels consist of scalar values. 
+# pixels are triples, whereas black-white or grayscale pixels consist of scalar values.
 
+
+ 
 def pixel_error(p1,p2, vector = True):
    if vector:
       return  math.sqrt((p1[0] - p2[0])**2 + (p1[1] - p2[1])**2 + (p1[2] - p2[2])**2)
@@ -49,6 +53,8 @@ def avg_color(image, vector = True):
       return avg_rgb(image)
    else:
       return avg_scalar_color(image)
+
+
 
 # Calc avg r, g and b values over an entire image.
 def avg_rgb(image):
@@ -83,6 +89,45 @@ def column_avg(image,band='red'):
       a[i] = float(sum_band)/float(y)
    return a
 
+def red_box(image):
+    x,y = image.size
+    red = eval("get_red")
+    for i in range(x):
+        for j in range(y):
+            if red(image, i, j) < 255 and red(image, i, j) != 0:
+                return False
+    return True
+
+
+def columns_max_spikes_green(image, band='red'):
+    x,y = image.size
+    func = eval("get_green")
+    red = eval("get_red")
+    blue = eval("get_blue")
+    a = kd_array.gen_array([x], init_elem = 0.0)
+    for i in range(x):
+        maximum = 0
+        for j in range(y):
+            if maximum < (func(image, i, j) - red(image,i,j) - blue(image,i,j)):
+                maximum = func(image, i, j)
+            a[i] = maximum
+    return a
+
+def columns_max_spikes_red(image, band='red'):
+    x,y = image.size
+    func = eval("get_red")
+    green = eval("get_green")
+    blue = eval("get_blue")
+    a = kd_array.gen_array([x], init_elem = 0.0)
+    for i in range(x):
+        maximum = 0
+        for j in range(y):
+            if maximum < (func(image, i, j) - green(image,i,j) - blue(image,i,j)):
+                maximum = func(image, i, j)
+            a[i] = maximum
+    return a
+
+
 def image_avg(image,band='red',scale = 1.0):
    return kd_array.vector_avg(column_avg(image,band=band)) / scale
 
@@ -102,4 +147,3 @@ def map_image(image,func):
 	for j in range(y):
 	    a[i,j] = apply(func, [image.getpixel((i,j))])
     return a
-

@@ -7,20 +7,22 @@ class BeardedOctoNinja(Epuck):
 
     def __init__(self):
         super(BeardedOctoNinja, self).__init__()
-        self.turn_on_leds()
         self.behaviours = [
             wander,
             avoid_objects,
             converge,
             retrieve,
             realign,
-            reposition,
+            reposition
         ]
 
     def simulate(self):
         while self.step(1) != -1:
             for behaviour in self.behaviours:
                 behaviour(self.sensors, self.actuators)
+                
+
+
 
 controller = BeardedOctoNinja()
 controller.simulate()
