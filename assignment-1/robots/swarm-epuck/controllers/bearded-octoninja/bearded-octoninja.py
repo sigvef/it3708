@@ -1,6 +1,6 @@
 from epuck import Epuck
 from behaviours import wander, avoid_objects, \
-    converge, retrieve, realign, reposition
+    converge, retrieve, reposition
 
 
 class BeardedOctoNinja(Epuck):
@@ -12,7 +12,6 @@ class BeardedOctoNinja(Epuck):
             avoid_objects,
             converge,
             retrieve,
-            realign,
             reposition,
         ]
 

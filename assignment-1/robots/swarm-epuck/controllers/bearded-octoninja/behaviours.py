@@ -1,10 +1,9 @@
-import imagepro
 import random
-import math
+
+
 def wander(sensors, actuators):
     actuators.set_rotation_speed(0)
     actuators.set_speed(2000)
-
 
 
 def avoid_objects(sensors, actuators):
@@ -14,9 +13,6 @@ def avoid_objects(sensors, actuators):
     left_walls = max(sum(left_sensors), threshold)
     right_walls = max(sum(right_sensors), threshold)
     maximum = max(left_walls, right_walls) + 1
-
-    front_sensors = [sensor.getValue() for sensor in [sensors.proximity[0], sensors.proximity[7]]];
-
     actuators.set_rotation_speed((left_walls - right_walls) / maximum)
 
 
@@ -33,48 +29,42 @@ def converge(sensors, actuators):
 
 
 def retrieve(sensors, actuators):
-    threshold = 0
-    left_sensors = [sensor.getValue() for sensor in sensors.light[4:]]
-    right_sensors = [sensor.getValue() for sensor in sensors.light[:4]]
-
-    front_sensors = [sensor.getValue() for sensor in [sensors.proximity[0], sensors.proximity[7]]];
-
-    left_robots = max(sum(left_sensors), threshold)
-    right_robots = max(sum(right_sensors), threshold)
-
-
-    if left_robots + right_robots > 10000 and sum(front_sensors) > 800:
-        sensors.epuck.turn_on_pushingleds()
-    else:
-        sensors.epuck.turn_off_pushingleds()
-
-
-    
-def realign(sensors, actuators):
-    # threshold = 0
-    # img = sensors.get_image()
-    # list = imagepro.columns_max_spikes_green(img, band="green").tolist()
-    # left = sum(map(lambda x: 178 if x == 178 else 0,list[26:])) or 1
-    # right = sum(map(lambda x: 178 if x == 178 else 0,list[:26])) or 1
-    # front_sensors = [sensor.getValue() for sensor in [sensors.proximity[0], sensors.proximity[7]]];
-    # if left > right:
-    #     actuators.set_rotation_speed(-0.5)
-
-    # elif left < right:
-    #     actuators.set_rotation_speed(0.5)
-    pass
-    
+    front_light_sensors = sum([sensor.getValue()
+                               for sensor in [sensors.light[0]] +
+                               [sensors.light[7]]])
+    threshold = 250
+    left_sensors = [sensor.getValue() for sensor in sensors.proximity[5:]]
+    right_sensors = [sensor.getValue() for sensor in sensors.proximity[:3]]
+    left_walls = max(sum(left_sensors), threshold)
+    right_walls = max(sum(right_sensors), threshold)
+    maximum = max(left_walls, right_walls) + 1
+    if front_light_sensors < 6000:
+        actuators.set_rotation_speed((right_walls - left_walls) / maximum)
 
 
 def reposition(sensors, actuators):
-    front_sensors = [sensor.getValue() for sensor in [sensors.proximity[0], sensors.proximity[7]]]
-    accelerometer = sensors.accelerometer
-    values = accelerometer.getValues()
-    if (sum(front_sensors) > 800 and math.fabs(values[0] + values[1]) < 0.10):
-            sensors.epuck.step(3000)
-            converge(sensors, actuators)
+    front_sensors = sum([sensor.getValue()
+                         for sensor in [sensors.proximity[0]] +
+                         [sensors.proximity[7]]])
+    side_sensors = sum([sensor.getValue()
+                        for sensor in [sensors.proximity[2],
+                                       sensors.proximity[5]]])
+
+    if front_sensors > 6000:
+        timer = max(side_sensors, 1) ** 0.9
+        while timer > 0:
+            timer -= 1
+            retrieve(sensors, actuators)
+            sensors.epuck.step(1)
+        actuators.set_speed(-2000)
+        actuators.set_rotation_speed((random.random() - 0.5) / 10)
+        timer = 10
+        while timer > 0:
+            timer -= 1
+            sensors.epuck.step(1)
+        timer = 30
+        while timer > 0:
+            timer -= 1
+            wander(sensors, actuators)
             avoid_objects(sensors, actuators)
-    pass
-
-
-
+            sensors.epuck.step(1)

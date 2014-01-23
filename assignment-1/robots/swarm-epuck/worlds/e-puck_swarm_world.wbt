@@ -189,3 +189,32 @@ DEF FOOD Solid {
     mass 0.35
   }
 }
+DEF FOOD Solid {
+  translation 0.3 0.0998616 0.4
+  rotation -0.794445 0.10399 -0.598367 -3.87352e-17
+  children [
+    PointLight {
+      color 1 0 0
+      intensity 0.275
+      location 0 -0.075 0
+      radius 0.01
+      castShadows TRUE
+    }
+    DEF FOOD-SHAPE Shape {
+      appearance Appearance {
+        material Material {
+          diffuseColor 1 0 0
+          emissiveColor 1 0 0
+        }
+      }
+      geometry Box {
+        size 0.2 0.2 0.2
+      }
+    }
+  ]
+  boundingObject USE FOOD-SHAPE
+  physics Physics {
+    density -1
+    mass 0.35
+  }
+}

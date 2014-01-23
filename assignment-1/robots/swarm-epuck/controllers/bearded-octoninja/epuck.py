@@ -1,33 +1,15 @@
 from controller import DifferentialWheels
-from PIL import Image
-import imagepro
 
 
 class Sensors(object):
 
     def __init__(self, epuck):
+        self.epuck = epuck
         self.proximity = [epuck.getDistanceSensor('ps' + str(x))
                           for x in range(8)]
         self.light = [epuck.getLightSensor('ls' + str(i)) for i in range(8)]
-
         for sensor in self.proximity + self.light:
             sensor.enable(int(epuck.getBasicTimeStep()/4))
-
-        self.camera = epuck.getCamera('camera')
-        self.camera.enable(int(4 * epuck.getBasicTimeStep()))
-        self.accelerometer = epuck.getAccelerometer("accelerometer")
-        self.accelerometer.enable(1)
-        self.epuck = epuck
-
-    def get_image(self):
-        strImage = self.camera.getImage()
-        im = Image.fromstring(
-            'RGB', (self.camera.getWidth(), self.camera.getHeight()), strImage)
-        return im
-
-    def see_other_pucks(self):
-        a = imagepro.column_avg(self.get_image())
-        print a
 
 
 class Actuators(object):
@@ -72,19 +54,3 @@ class Epuck(DifferentialWheels):
     def set_rotation_speed(self, rotation_speed):
         self.rotation_speed = rotation_speed
         self._update_wheel_speeds()
-
-    def turn_on_pushingleds(self):
-        for led in [self.getLED('led' + str(i)) for i in range(7, 9)]:
-            led.set(1)
-
-    def turn_off_pushingleds(self):
-        for led in [self.getLED('led' + str(i)) for i in range(7, 9)]:
-            led.set(0)
-
-    def turn_on_leds(self):
-        for led in [self.getLED('led' + str(i)) for i in range(8)]:
-            led.set(1)
-
-    def turn_off_leds(self):
-        for led in [self.getLED('led'+str(i)) for i in range(8)]:
-            led.set(0)
