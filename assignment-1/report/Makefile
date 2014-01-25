@@ -8,4 +8,4 @@ all:
 
 .PHONY: clean
 clean:
-	rm -f *.aux *.bbl *.blg *.xml *.log *.blx.bib
+	rm -f *.aux *.bbl *.blg *.xml *.log *blx.bib
