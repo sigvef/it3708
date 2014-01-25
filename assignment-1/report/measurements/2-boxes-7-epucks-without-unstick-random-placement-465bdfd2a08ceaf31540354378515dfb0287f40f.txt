@@ -1,0 +1,75 @@
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+[simulation-runner] Finished task in 297.216s
+[simulation-runner] Finished task in 387.264s
+DNF
+DNF
+[simulation-runner] Finished task in 387.264s
+[simulation-runner] Finished task in 68.16s
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+[simulation-runner] Finished task in 100.48s
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+[simulation-runner] Finished task in 234.048s
+[simulation-runner] Finished task in 219.968s
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+[simulation-runner] Finished task in 102.048s
+[simulation-runner] Finished task in 661.76s
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+[simulation-runner] Finished task in 43.904s
+[simulation-runner] Finished task in 862.88s
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+DNF
+[simulation-runner] Finished task in 123.36s
+[simulation-runner] Finished task in 210.976s
+DNF
+DNF
