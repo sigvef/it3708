@@ -6,7 +6,7 @@ class SimulationRunner(Supervisor):
 
     def __init__(self):
         super(SimulationRunner, self).__init__()
-        self.foods = map(self.getFromDef, ['FOOD', 'FOOD2'])
+        self.foods = map(self.getFromDef, ['FOOD'])
         self.epucks = map(self.getFromDef,
                           ['epuck' + str(i) for i in range(7)])
 
