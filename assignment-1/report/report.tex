@@ -45,17 +45,30 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 
 
 \subsection{Brooks Architecture}
-The system we implemented is based on an AI concept called subsumption architecture. Subsumption architecture was first described by Rodney Brooks in the mid 80's. The idea behind subsumption architecture came from insects. Insects though with relatively little computational power, is able to walk, avoid obstacles, and make desicions faster than any robot created. The architecture is divided into layers called: "the levels of competence". Each layer is  independent of each other, where the higher levels are capable of overriding the lower.
+The system we implemented is based on an AI concept called subsumption architecture. Subsumption architecture was first described by Rodney Brooks in the mid 80's. The idea behind subsumption architecture came from insects. Insects though with relatively little computational power, is able to walk, avoid obstacles, and make desicions faster than any robot created. The architecture is divided into layers called: "the levels of competence". Each layer is  independent of each other, where the higher levels are capable of overriding the lower[1]. The highest stimulated behaviour is acted upon [2]
 
 \subsection{Our implementation}
 We divided our "levels of competence" into six independent behaviours; Wander, Avoid obstacles, Converge, Retrieve, Realign, and Reposition. The lower levels have a higher priority and are able to override the higher ones.
 \input{subsumption.tex}
 
 \subsubsection{Wander}
-Wander makes the robot run 
+Wander is our default behaviour, it basically tells the robot to run straight forward. It has no stimulus, when no other behaviour is stimulated, the robot acts on this behaviour
+
+\subsubsection{Avoid obstacles}
+
+
+\subsubsection{Converge}
+
+
+\subsubsection{Retrieve}
+
+\subsubsection{Realign}
+
+\subsubsection{Reposition}
+
 \section{Simulation Results}
 
-\begin{table}
+\begin{table}[h!]
 \centering
 \begin{tabular}{ c | c | p{5cm}}
 \hline No & Time & Notes \\ \hline
@@ -78,15 +91,17 @@ Wander makes the robot run
 \centering
 \begin{tabular}{ l | r}
 \hline Number of runs & Avg. Time \\ \hline
-10 & 1:03:39 \\
+9 & ?:??:?? \\
 \end{tabular}
 \caption{ Average time of One box problem runs}
 \end{table}
+
+
+\subsection{Observed weaknesses}
 \part{An Improved System}
 
 \section{Description}
 \section{Simulation Results}
-
 \part{A More Advanced Architecture}
 
 \section{Description}
