@@ -5,11 +5,15 @@
 \usepackage{float}
 \usepackage{tikz}
 \usepackage{graphicx}
+\usepackage{url}
 \usetikzlibrary{arrows}
 \usetikzlibrary{positioning}
 \pagestyle{fancy}
 \graphicspath{{img/}}
 \renewcommand\thepart{\Alph{part}}
+
+\newcommand\TODO[1]{\textcolor{red}{TODO:#1}}
+\newcommand\todo[1]{\TODO{#1}}
 
 \title{Homework Module: A Controller for Swarm Behaviour in Webots}
 
@@ -126,14 +130,14 @@ blabalbal
 \end{table}
 
 
-
 \newpage
-\part{Appendix}
-\begin{figure}[h!]
-\centering
-\includegraphics[scale=0.5]{one-box-world.png}
-\caption{World used in the simulation for Table 1}
-\end{figure}
+%\part{Appendix}
+%\begin{figure}[h!]
+%\centering
+\todo{Include the picture in the repo}
+%\includegraphics[scale=0.5]{one-box-world.png}
+%\caption{World used in the simulation for Table 1}
+%\end{figure}
 
 \newpage
 \part{References}
@@ -141,5 +145,8 @@ blabalbal
 [2]Jannik Berg and Camilla Haukenes Karud. Swarm intelligence in bio-inspired robotics. PhD thesis,
 Norwegian University of Science and Technology, 2011.
 
+\bibliography{reference-library}
+\bibliographystyle{plain}
+\nocite{*}
 
 \end{document}
