@@ -58,22 +58,39 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 The system we implemented is based on an AI concept called subsumption architecture. Subsumption architecture was first described by Rodney Brooks in the mid 80's. The idea behind subsumption architecture came from insects. Insects though with relatively little computational power, is able to walk, avoid obstacles, and make desicions faster than any robot created. The architecture is divided into layers called: "the levels of competence". Each layer is  independent of each other, where the higher levels are capable of overriding the lower[1]. The highest stimulated behaviour is acted upon [2]
 
 \subsection{Our implementation}
-We divided our "levels of competence" into six independent behaviours; Wander, Avoid obstacles, Converge, Retrieve, Realign, and Reposition. The lower levels have a higher priority and are able to override the higher ones.
+We divided our "levels of competence" into six independent behaviours; Wander, Avoid obstacles, Converge, Retrieve, and Reposition. The lower levels have a higher priority and are able to override the higher ones.
 \input{subsumption.tex}
 
 \subsubsection{Wander}
 Wander is our default behaviour, it basically tells the robot to run straight forward. It has no stimulus, when no other behaviour is stimulated, the robot acts on this behaviour
 
 \subsubsection{Avoid obstacles}
+The avoid obstacles behaviour is triggered when the epucks proximity sensors rise above a certain threshold, indicating that it's close to or about to hit a wall.
+
+The rotational angle of the differential wheels is then set proportional to the difference between the amount of obstacles on either side of the robot, such that it turns away from the observed obstacles. 
+
+The closer the wall is on the right side, the harder the epuck will turn to the left, and vice versa. 
 
 \subsubsection{Converge}
+The converge behaviour is triggered when the sum of the epucks light sensors rise above a certain threshold, indicating that food is nearby.
+
+The rotational angle of the differential wheels is set in proportion to the amount of light on either side, such that the robot heads towards the light.
 
 \subsubsection{Retrieve}
+The retrieve behaviour is triggered when the epuck detects that food is straight ahead, but that it's not yet close enough to begin retrieval.
 
-\subsubsection{Realign}
+The behaviour will try to align the robot with the surface normal of the object, so that it's driving directly into the food for maximum force
 
 \subsubsection{Reposition}
-blablabla
+The reposition behaviour is enabled when the epuck has found the food, and is trying to bring it home. 
+
+There's a chance that pucks may be hindering progress by pushing o, and that some of the pucks will need to realign themselves if they wish to return home triumphantly with food. We solved this problem as follows:
+
+When an epuck realizes it's driving into the food, it will blindly drive straight ahead
+
+
+ and a realign is needed to get anywhere at all. Our reposition behaviour implements a stateless way to realign the epuck after some time has passed. 
+
 \section{Simulation Results}
 blabalbal
 \begin{table}[h!]
