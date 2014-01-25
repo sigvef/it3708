@@ -58,8 +58,12 @@ We divided our "levels of competence" into six independent behaviours; Wander, A
 Wander is our default behaviour, it basically tells the robot to run straight forward. It has no stimulus, when no other behaviour is stimulated, the robot acts on this behaviour
 
 \subsubsection{Avoid obstacles}
+When the values reported by the epucks proximity sensors rise above our defined threshold, the avoid obstacles behaviour is triggered.
 
+The rotational angle of the wheels is then set to the normalized ratio between the reported values of the sensors on either side. The closer the wall is on the right side, the harder the epuck will turn to the left, and vice versa. 
 
+This behaviour is inspired by the Braitenberg method of avoidance.
+ 
 \subsubsection{Converge}
 
 
