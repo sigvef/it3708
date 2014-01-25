@@ -39,10 +39,49 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 
 \section{Description}
 
+
+\subsection{Swarm intelligence in nature}
+
+
+
+\subsection{Brooks Architecture}
+The system we implemented is based on an AI concept called subsumption architecture. Subsumption architecture was first described by Rodney Brooks in the mid 80's. The idea behind subsumption architecture came from insects. Insects though with relatively little computational power, is able to walk, avoid obstacles, and make desicions faster than any robot created. The architecture is divided into layers called: "the levels of competence". Each layer is  independent of each other, where the higher levels are capable of overriding the lower.
+
+\subsection{Our implementation}
+We divided our "levels of competence" into six independent behaviours; Wander, Avoid obstacles, Converge, Retrieve, Realign, and Reposition. The lower levels have a higher priority and are able to override the higher ones.
 \input{subsumption.tex}
 
+\subsubsection{Wander}
+Wander makes the robot run 
 \section{Simulation Results}
 
+\begin{table}
+\centering
+\begin{tabular}{ c | c | p{5cm}}
+\hline No & Time & Notes \\ \hline
+ 1 & 42.56 &  \\ \hline
+ 2 & 38.21 & \\ \hline
+ 3 & 33.54 & Close to optimal run \\ \hline
+4 & - & Two robots got stuck between the box and the wall. Therefore the robots was not able to finish the objective \\ \hline
+5 & 36.35 & \\ \hline
+6	& 52.13 & The robots did change pushing direction in the middle of the simulation \\ \hline
+7 & 59.81 & \\ \hline
+8 & 52.83 & \\ \hline
+9 & 3:32.01 &  The robots divided into two groups and pushed from opposite sides \\ \hline
+10 & 1:42.84 & The robots divided into two groups and pushed from oppsite sides, though the stagnation got solved earlier than simulation 9 \\
+\end{tabular}
+\caption{One box problem runs}
+\end{table}
+
+
+\begin{table}
+\centering
+\begin{tabular}{ l | r}
+\hline Number of runs & Avg. Time \\ \hline
+10 & 1:03:39 \\
+\end{tabular}
+\caption{ Average time of One box problem runs}
+\end{table}
 \part{An Improved System}
 
 \section{Description}
