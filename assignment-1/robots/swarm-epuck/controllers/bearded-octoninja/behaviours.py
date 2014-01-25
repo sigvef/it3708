@@ -68,3 +68,19 @@ def reposition(sensors, actuators):
             wander(sensors, actuators)
             avoid_objects(sensors, actuators)
             sensors.epuck.step(1)
+
+
+def unstick(sensors, actuators):
+    if random.random() < 0.001:
+        actuators.set_speed(-2000)
+        actuators.set_rotation_speed(0)
+        timer = 20
+        while timer > 0:
+            timer -= 1
+            sensors.epuck.step(1)
+        actuators.set_speed(-2000)
+        actuators.set_rotation_speed(1)
+        timer = 10
+        while timer > 0:
+            timer -= 1
+            sensors.epuck.step(1)
