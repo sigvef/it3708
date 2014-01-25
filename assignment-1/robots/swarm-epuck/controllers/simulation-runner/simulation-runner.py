@@ -11,7 +11,6 @@ class SimulationRunner(Supervisor):
                           ['epuck' + str(i) for i in range(7)])
 
     def reset_simulation(self):
-        #self.simulationRevert()
         for item in self.foods + self.epucks:
             item.getField('translation').setSFVec3f([random.random() - 0.5,
                                                     0, random.random() - 0.5])
@@ -31,8 +30,9 @@ class SimulationRunner(Supervisor):
         self.reset_simulation()
         while self.step(1) != -1:
             if self.are_all_foods_pushed_to_wall():
-                print self.getTime()
+                print 'Finished task in %ss' % self.getTime()
                 self.reset_simulation()
+                self.simulationRevert()
 
 simulation_runner = SimulationRunner()
 simulation_runner.simulate()
