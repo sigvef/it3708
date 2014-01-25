@@ -1,14 +1,14 @@
 \documentclass{article}
 
 \usepackage[utf8]{inputenc}
-\usepackage{url}
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{tikz}
+\usepackage{graphicx}
 \usetikzlibrary{arrows}
 \usetikzlibrary{positioning}
 \pagestyle{fancy}
-
+\graphicspath{{img/}}
 \renewcommand\thepart{\Alph{part}}
 
 \title{Homework Module: A Controller for Swarm Behaviour in Webots}
@@ -38,10 +38,13 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 
 \part{The Proposed System}
 
-This is a citation of the assignment ~\cite{assignment}.
-
 \section{Description}
 
+\begin{figure}[h!!]
+\centering
+\includegraphics[scale=0.2]{e-puck_sensors_and_leds.png}
+\caption{E-puck robot with all sensors}
+\end{figure}
 
 \subsection{Swarm intelligence in nature}
 
@@ -55,40 +58,34 @@ We divided our "levels of competence" into six independent behaviours; Wander, A
 \input{subsumption.tex}
 
 \subsubsection{Wander}
-Wander is the default behaviour for the epuck. When no other behaviours are triggered, the robot will simply drive straight ahead.
+Wander is our default behaviour, it basically tells the robot to run straight forward. It has no stimulus, when no other behaviour is stimulated, the robot acts on this behaviour
 
 \subsubsection{Avoid obstacles}
-When the values reported by the epucks proximity sensors rise above our defined threshold, the avoid obstacles behaviour is triggered.
 
-The rotational angle of the wheels is then set to the normalized ratio between the reported values of the sensors on either side. The closer the wall is on the right side, the harder the epuck will turn to the left, and vice versa. 
-
-This behaviour is inspired by the Braitenberg method of avoidance.
- 
 \subsubsection{Converge}
-
 
 \subsubsection{Retrieve}
 
 \subsubsection{Realign}
 
 \subsubsection{Reposition}
-
+blablabla
 \section{Simulation Results}
-
+blabalbal
 \begin{table}[h!]
 \centering
 \begin{tabular}{ c | c | p{5cm}}
 \hline No & Time & Notes \\ \hline
- 1 & 42.56 &  \\ \hline
- 2 & 38.21 & \\ \hline
- 3 & 33.54 & Close to optimal run \\ \hline
+ 1 & 42:56 &  \\ \hline
+ 2 & 38:21 & \\ \hline
+ 3 & 33:54 & Close to optimal run \\ \hline
 4 & - & Two robots got stuck between the box and the wall. Therefore the robots was not able to finish the objective \\ \hline
-5 & 36.35 & \\ \hline
-6	& 52.13 & The robots did change pushing direction in the middle of the simulation \\ \hline
-7 & 59.81 & \\ \hline
-8 & 52.83 & \\ \hline
-9 & 3:32.01 &  The robots divided into two groups and pushed from opposite sides \\ \hline
-10 & 1:42.84 & The robots divided into two groups and pushed from oppsite sides, though the stagnation got solved earlier than simulation 9 \\
+5 & 36:35 & \\ \hline
+6	& 52:13 & The robots did change pushing direction in the middle of the simulation \\ \hline
+7 & 59:81 & \\ \hline
+8 & 52:83 & \\ \hline
+9 & 3:32:01 &  The robots divided into two groups and pushed from opposite sides \\ \hline
+10 & 1:42:84 & The robots divided into two groups and pushed from oppsite sides, though the stagnation got solved earlier than simulation 9 \\
 \end{tabular}
 \caption{One box problem runs}
 \end{table}
@@ -112,9 +109,37 @@ This behaviour is inspired by the Braitenberg method of avoidance.
 \part{A More Advanced Architecture}
 
 \section{Description}
+\newpage
 \section{Simulation Results}
+\begin{table}[h!]
+\centering
+\begin{tabular}{ c | c | p{5cm}}
+\hline No & Time & Notes \\ \hline
 
-\bibliography{reference-library}
-\bibliographystyle{plain}
+1 & 5:01:96 & The robots were trying to push a box that allready was retrieved \\ \hline
+2 & 2:38:43 & \\ \hline
+3 & 5:20:45 & Same as simulation number 1 \\ \hline
+4
+
+
+\end{tabular}
+\end{table}
+
+
+
+\newpage
+\part{Appendix}
+\begin{figure}[h!]
+\centering
+\includegraphics[scale=0.5]{one-box-world.png}
+\caption{World used in the simulation for Table 1}
+\end{figure}
+
+\newpage
+\part{References}
+[1]http://mwarnerwu.wordpress.com/research/subsumption-architecture/
+[2]Jannik Berg and Camilla Haukenes Karud. Swarm intelligence in bio-inspired robotics. PhD thesis,
+Norwegian University of Science and Technology, 2011.
+
 
 \end{document}
