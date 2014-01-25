@@ -144,16 +144,6 @@ DEF FLOOR Solid {
   translation 0 -0.005 0
   children [
     DEF FLOOR-SHAPE Shape {
-      appearance Appearance {
-        texture ImageTexture {
-          url [
-            "textures/grid.png"
-          ]
-        }
-        textureTransform TextureTransform {
-          scale 5 5
-        }
-      }
       geometry Box {
         size 1.5 0.01 1.5
       }
