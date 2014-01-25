@@ -1,6 +1,6 @@
 from epuck import Epuck
 from behaviours import wander, avoid_objects, \
-    converge, retrieve, reposition, unstick
+    converge, retrieve, reposition
 
 
 class BeardedOctoNinja(Epuck):
@@ -13,7 +13,6 @@ class BeardedOctoNinja(Epuck):
             converge,
             retrieve,
             reposition,
-            unstick,
         ]
 
     def simulate(self):
