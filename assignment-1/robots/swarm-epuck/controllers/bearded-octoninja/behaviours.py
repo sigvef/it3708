@@ -46,9 +46,12 @@ def reposition(sensors, actuators):
     front_sensors = sum([sensor.getValue()
                          for sensor in [sensors.proximity[0]] +
                          [sensors.proximity[7]]])
+    side_sensors = sum([sensor.getValue()
+                        for sensor in [sensors.proximity[2],
+                                       sensors.proximity[5]]])
 
     if front_sensors > 6000:
-        timer = 100
+        timer = max(side_sensors, 1) ** 0.9
         while timer > 0:
             timer -= 1
             retrieve(sensors, actuators)
