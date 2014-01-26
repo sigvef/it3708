@@ -73,13 +73,13 @@ This way, complex behaviour can be composed of many small reactive agent behavio
 \section{Webots}
 
 ``Webots is a development environment used to model, program and simulate mobile robots.''~\cite{webots}
-Webots is used in this assignment to implement and simulated swarm agents.
+Webots is used in this assignment to implement and simulate swarm agents.
 
 \section{The E-puck}
 
 The e-puck is a small (7 cm) open-source differential wheeled puck-shaped educational robot.
-The E-puck model is available in Webots as a simulatable model, and it is used in this assignment as the hardware in which the swarm agents will run.
-An overview of the e-puck with its available sensors can be found in \vref{figure:e-puck}.
+The E-puck model is available in Webots as a simulatable model, and it is used in this assignment as the hardware on which the swarm agents will run.
+An overview of the e-puck with its available sensors can be found in figure \vref{figure:e-puck}.
 
 \part{The Proposed System}
 \label{part:improved-system}
@@ -115,7 +115,6 @@ The rotational angle of the agent is set in proportion to the amount of light on
 \subsubsection{Retrieve}
 This behaviour is intended to let agents push food to a goal area, and is triggered when the agent detects that food is right in front of it.
 It will try to align the agent with the surface-normal of the object, such that maximum force will be exerted upon it.
-
 It subsumes the obstacle avoidance behaviour, letting the agent push the food.
 
 \subsubsection{Reposition}
@@ -124,13 +123,12 @@ It is enabled when the agent has found food, and is trying to bring it home.
 
 A problem that commonly occurs is that the agents are trying to push the food from opposing sides, and therefore getting nowhere.
 The reposition behaviour simply says that after $ N $ seconds of retrieval, the agent will try to push somewhere else nearby.
-
 This exponential backoff-inspired behaviour allows the agents to reposition themselves reasonably efficiently.
 
 \section{Simulation Results}
 \label{section:first-sim-results}
 
-This version of the swarm agent was run in a series of simulation experiments in Webots.
+This first version of the swarm agent, dubbed the proposed agent, was run in a series of simulation experiments in Webots.
 7 swarm robots were randomly placed in a $ 1.5m \times 1.5m $ square world together with a randomly placed lit food block.
 For each experiment, the time taken from world setup was complete until the swarm managed to transport the food to an edge of the world was measured.
 
@@ -143,19 +141,19 @@ During observation of the 75 simulation runs, several weaknesses of the agent sy
 
 \subsubsection{No incentive for teamwork}
 In the current architecture, the reposition behaviour blindly sends the robot away after it has been pushing the food for a fixed amount of time.
-
 This does not entice teamwork, as robots who by chance are pushing on the same side have equal chance of repositioning themselves as robots who are blindly pushing from some unproductive angle.
-
-This results in robots not intentionally clustering together, making food retrieval more luck-of-the-draw based than a coordinated operation.
+The result is that the robots don't intentionally cluster together, making food retrieval more luck-of-the-draw based than a coordinated operation.
 
 \subsubsection{Getting stuck}
-In this implementation, the robots have a tendency to get stuck in a few different ways. Fortunately these issues mainly manifested themselves after the pushing of the box into the wall, therefore not interfering with our success metrics:
+In this implementation, the robots had a tendency to get stuck in a few different ways. Fortunately these issues mainly manifested themselves after the pushing of the box into the wall, therefore not interfering with the goal.
+
+The stuck robots would typically get stuck in one of these ways:
 
 \begin{itemize}
 	\item Two robots driving straight into each other
 	\item Getting stuck behind boxes
 	\item Poor sensor calibration sometimes leads to robots not avoiding walls when food is nearby
-	\item Rolling on their sides
+    \item Rolling on their sides (rare)
 \end{itemize}
 
 \part{An Improved System}
@@ -163,7 +161,8 @@ In this implementation, the robots have a tendency to get stuck in a few differe
 \section{Description}
 The initial system had some issues with enticing teamwork and preventing robots from having love affairs with one another instead of retrieving food for the starving epuck-population at home.
 
-To resolve these issues we introduced rewards for collaboration when retrieving food, but decided against implementing contingency behaviour when stuck, as this was not interfering with our goals in the single-box simulation.
+To resolve these issues, rewards for collaboration when retrieving food was introroduced.
+Contingency behaviour when stuck was not implemented for the improved system, as agents getting stuck after the food had reached the goal area did obviously not interfere with achieving the goal.
 
 \subsection{The improved reposition behaviour}
 The reposition behaviour has been modified to reward agents working together. This is done by increasing the allotted retrieval-time in proportion to the number of neighbouring robots.
@@ -190,6 +189,9 @@ Exploring the viability of the improved swarm agent from part \vref{part:improve
 In this scenario there are two food boxes that need to be collected by the swarm.
 
 Adapting the improved swarm agent from part \ref{part:improved-system}, a new behaviour is added to the subsumption ladder: a jiggling unstuck-ing anti-stagnation behaviour.
+An overview of the behaviour subsumption scheme for the advanced system can be found in figure \vref{figure:advanced-subsumption}.
+
+\input{advanced-subsumption.tex}
 
 \input{subsumption2.tex}
 
@@ -203,7 +205,7 @@ These two versions of the swarm agent was run in a series of simulation experime
 This simulation was run 75 times with the improved swarm agent presented in part \vref{part:improved-system}, and 75 times with the advanced system with the unstick behaviour presented in part \vref{part:advanced-system}.
 The results from these simulations can be seen in figure \vref{figure:third-hist} and figure \vref{figure:fourth-hist}, respectively.
 
-The simulations with the improved agent from \ref{part:improved-system}, without the unstick behaviour, were dominated by runs where the swarm was not able to complete its task.
+The simulations with the improved agent from part \ref{part:improved-system}, without the unstick behaviour, were dominated by runs where the swarm was not able to complete its task.
 Often the swarm would get stuck in a locked position, and the simulation would have to be aborted prematurely.
 
 In the simulations where the swarm did finish their task, they finished quite quickly - using only one third of the time of the advanced system with the unstuck behaviour.
