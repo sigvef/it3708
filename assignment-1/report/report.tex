@@ -113,6 +113,23 @@ This exponential backoff-inspired behaviour allows the agents to reposition them
 
 
 \subsection{Observed weaknesses}
+\subsubsection{No incentive for teamwork}
+In the current architecture, the reposition behaviour blindly sends the robot away after it has been pushing the food for a fixed amount of time.
+
+This does not entice teamwork, as robots who by chance are pushing on the same side have equal chance of repositioning themselves as robots who are blindly pushing from some unproductive angle.
+
+This results in robots not intentionally clustering together, making food retrieval more luck-of-the-draw based than a coordinated operation.
+
+\subsubsection{Getting stuck}
+In this implementation, the robots have a tendency to get stuck in a few different ways:
+
+\begin{itemize}
+	\item Two robots driving straight into each other
+	\item Getting stuck behind boxes
+	\item Poor sensor calibration sometimes leads to robots not avoiding walls when food is nearby
+	\item Rolling on their sides
+\end{itemize}
+
 \part{An Improved System}
 
 \section{Description}
