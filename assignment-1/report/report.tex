@@ -54,7 +54,7 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 
 ``Swarm robotics is a field that capitalizes on self-organization to generate interesting global patterns from interactions among relatively simple robots, all in the absence of centralized control.''~\cite{course-page}
 
-This report presents a homogenous robotic swarm that can identify interesting objects and push them to desired areas.
+This report presents a homogeneous robotic swarm that can identify interesting objects and push them to desired areas.
 The individual agent is inspired by ant behaviour.
 
 
@@ -63,7 +63,7 @@ The individual agent is inspired by ant behaviour.
 The implemented system is based on an AI concept called subsumption.
 The subsumption architecture was first described by Rodney Brooks in 1986~\cite{brooks}, and is also called Brooks' Architecture.
 The idea behind Brooks' Architecture is inspired by insect behaviour.
-Insects, although they have relatively small amounts of computational power, are able to walk, avoid obstacles, and make complex decicions at impressive speeds.
+Insects, although they have relatively small amounts of computational power, are able to walk, avoid obstacles, and make complex decisions at impressive speeds.
 The architecture is divided into behavioural layers called: "the levels of competence".\todo{cite where "the levels of competence" is from}.
 Each layer is independent of the others, but the higher levels are capable of overriding the lower.~\cite{mwarnerwu}
 This way, complex behaviour can be composed of many small reactive agent behaviours.
@@ -193,11 +193,11 @@ The simulations with the improved agent from \ref{part:improved-system}, without
 Often the swarm would get stuck in a locked position, and the simulation would have to be aborted prematurely.
 
 In the simulations where the swarm did finish their task, they finished quite quickly - using only one third of the time of the advanced system with the unstuck behaviour.
-This is a clear example of survior bias.
+This is a clear example of survivorship bias.
 
 The simulations with the advanced agent from \ref{part:advanced-system}, with the unstick behaviour, fared much better.
 The median solution time for the advanced agent in the simulations was $ 647.872 $ seconds.
-Of these seconds, the vast majority were tyically spent finding and moving the second food box.
+Of these seconds, the vast majority were typically spent finding and moving the second food box.
 
 \input{measurements/histogram.tex}
 
