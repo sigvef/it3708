@@ -1,3 +1,38 @@
+\newsavebox{\zoomsinglegood}
+\savebox{\zoomsinglegood}{%
+\begin{tikzpicture}
+\begin{axis}[
+width=\textwidth/4,
+ybar interval,
+xtick=,% reset from ybar interval
+yticklabel={\tiny $\pgfmathprintnumber\tick$},
+xticklabel={\tiny $\pgfmathprintnumber\nexttick$},
+]
+\addplot+[hist={data={x}, bins=20, data max=250, intervals=false}]
+file {measurements/1-box-7-epucks-without-unstick-random-placements-b35d4c771d6b71e88f73cf833ed8067aad97f4ff.txt};
+\draw[red] (axis cs:21.344,0) -- (axis cs:21.344,18);
+\end{axis}
+\end{tikzpicture}
+}
+
+\newsavebox{\zoomsinglebad}
+\savebox{\zoomsinglebad}{%
+\begin{tikzpicture}
+\begin{axis}[
+width=\textwidth/4,
+ybar interval,
+xtick=,% reset from ybar interval
+yticklabel={\tiny $\pgfmathprintnumber\tick$},
+xticklabel={\tiny $\pgfmathprintnumber\nexttick$},
+]
+\addplot+[hist={data={x}, bins=20, data max=250, intervals=false}]
+file {measurements/1-box-7-epucks-without-unstick-random-placement-bad-reposition-0c4ad0674e83c6681d4769371fe55f976d71ab72.txt};
+\draw[red] (axis cs:38.336,0) -- (axis cs:38.336,18);
+\end{axis}
+\end{tikzpicture}
+}
+
+
 \begin{figure}[H]%
 \centering
 \subfloat[Randomly generated scenario with 1 food box and 7 epuck robots, with static reposition, without the unstick behaviour.]{{
@@ -10,13 +45,15 @@ ylabel=Number of runs,
 xtick=,% reset from ybar interval
 xticklabel={$\pgfmathprintnumber\nexttick$}
 ]
-\addplot+[hist={data={x}, bins=20, data max=250, intervals=false}]
+\addplot+[hist={data={x}, bins=20, data max=2000, intervals=false}]
 file {measurements/1-box-7-epucks-without-unstick-random-placement-bad-reposition-0c4ad0674e83c6681d4769371fe55f976d71ab72.txt};
-\draw[red] (axis cs:38.336,0) -- (axis cs:38.336,12) node [right] {38.336 s};
+\draw[red] (axis cs:38.336,0) -- (axis cs:38.336,57) node [right=0.1cm] {38.336 s};
+\draw (axis cs:1500,42) node {\usebox{\zoomsinglebad}};
 \end{axis}
 \end{tikzpicture}
 }}%
 \subfloat[Randomly generated scenario with 1 food box and 7 epuck robots without the unstick behaviour.]{{%
+
 \begin{tikzpicture}%
 \begin{axis}[
 width=\textwidth/2,
@@ -29,25 +66,16 @@ xticklabel={$\pgfmathprintnumber\nexttick$}
 \addplot+[hist={data={x}, bins=20, data max=2000, intervals=false}]%
 file {measurements/1-box-7-epucks-without-unstick-random-placements-b35d4c771d6b71e88f73cf833ed8067aad97f4ff.txt};%
 \draw[red] (axis cs:21.344,0) -- (axis cs:21.344,67) node [right=0.15cm] {21.344 s};%
+\draw (axis cs:1500,49) node {\usebox{\zoomsinglegood}};
 \end{axis}%
 \end{tikzpicture}%
+
 }}%
-\subfloat[Randomly generated scenario with 1 food box and 7 epuck robots without the unstick behaviour (zoomed in).]{{
-\begin{tikzpicture}
-\begin{axis}[
-width=\textwidth/2,
-ybar interval,
-xlabel=Time to completion in seconds,
-ylabel=Number of runs,
-xtick=,% reset from ybar interval
-xticklabel={$\pgfmathprintnumber\nexttick$}
-]
-\addplot+[hist={data={x}, bins=20, data max=250, intervals=false}]
-file {measurements/1-box-7-epucks-without-unstick-random-placements-b35d4c771d6b71e88f73cf833ed8067aad97f4ff.txt};
-\draw[red] (axis cs:21.344,0) -- (axis cs:21.344,18) node [right=0.5cm] {21.344 s};
-\end{axis}
-\end{tikzpicture}
-}}%
+
+
+
+
+
 \qquad
 \subfloat[Randomly generated scenario with 2 food boxes and 7 epuck robots without the unstick behaviour.]{{
 \begin{tikzpicture}
@@ -82,6 +110,7 @@ file {measurements/2-boxes-7-epucks-with-unstick-random-placement-898fc092f762f5
 \end{tikzpicture}
 }}%
 
-\caption{Task completion measurement time distributions for different scenarios. Each scenario was simulated 75 times. The red line indicates the median time.}
+\caption{Task completion measurement time distributions for different scenarios. Each scenario was simulated 75 times. The red line indicates the median time.
+Smaller, embedded graphs are zoom-ins on specific ranges of the data set of the larger set.}
 \label{figure:task-completion-times}
 \end{figure}
