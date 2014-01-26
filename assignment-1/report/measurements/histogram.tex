@@ -33,7 +33,7 @@ file {measurements/1-box-7-epucks-without-unstick-random-placement-bad-repositio
 }
 
 
-\begin{figure}[H]%
+\begin{figure}[h]%
 \centering
 \subfloat[Randomly generated scenario with 1 food box and 7 epuck robots, with static reposition, without the unstick behaviour.]{{
 \begin{tikzpicture}
@@ -42,13 +42,14 @@ width=\textwidth/2,
 ybar interval,
 xlabel=Time to completion in seconds,
 ylabel=Number of runs,
+ymax=70,
 xtick=,% reset from ybar interval
 xticklabel={$\pgfmathprintnumber\nexttick$}
 ]
 \addplot+[hist={data={x}, bins=20, data max=2000, intervals=false}]
 file {measurements/1-box-7-epucks-without-unstick-random-placement-bad-reposition-0c4ad0674e83c6681d4769371fe55f976d71ab72.txt};
-\draw[red] (axis cs:38.336,0) -- (axis cs:38.336,57) node [right=0.1cm] {38.336 s};
-\draw (axis cs:1500,42) node {\usebox{\zoomsinglebad}};
+\draw[red] (axis cs:38.336,0) -- (axis cs:38.336,60) node [right=0.1cm] {38.336 s};
+\draw (axis cs:1500,50) node {\usebox{\zoomsinglebad}};
 \end{axis}
 \end{tikzpicture}
 }}%
@@ -60,13 +61,14 @@ width=\textwidth/2,
 ybar interval,
 xlabel=Time to completion in seconds,
 ylabel=Number of runs,
+ymax=70,
 xtick=,% reset from ybar interval
 xticklabel={$\pgfmathprintnumber\nexttick$}
 ]
 \addplot+[hist={data={x}, bins=20, data max=2000, intervals=false}]%
 file {measurements/1-box-7-epucks-without-unstick-random-placements-b35d4c771d6b71e88f73cf833ed8067aad97f4ff.txt};%
-\draw[red] (axis cs:21.344,0) -- (axis cs:21.344,67) node [right=0.15cm] {21.344 s};%
-\draw (axis cs:1500,49) node {\usebox{\zoomsinglegood}};
+\draw[red] (axis cs:21.344,0) -- (axis cs:21.344,60) node [right=0.15cm] {21.344 s};%
+\draw (axis cs:1500,50) node {\usebox{\zoomsinglegood}};
 \end{axis}%
 \end{tikzpicture}%
 
@@ -82,8 +84,10 @@ file {measurements/1-box-7-epucks-without-unstick-random-placements-b35d4c771d6b
 \begin{axis}[
 width=\textwidth/2,
 ybar interval,
+ymax=70,
 xlabel=Time to completion in seconds,
 ylabel=Number of runs,
+ymax=70,
 xtick=,% reset from ybar interval
 xticklabel={$\pgfmathprintnumber\nexttick$}
 ]
@@ -100,12 +104,13 @@ width=\textwidth/2,
 ybar interval,
 xlabel=Time to completion in seconds,
 ylabel=Number of runs,
+ymax=70,
 xtick=,% reset from ybar interval
 xticklabel={$\pgfmathprintnumber\nexttick$}
 ]
 \addplot+[hist={data={x}, bins=20, data max=2000, intervals=false}]
 file {measurements/2-boxes-7-epucks-with-unstick-random-placement-898fc092f762f5a17d5875ae62bb9baff5335149.txt};
-\draw[red] (axis cs:647.872,0) -- (axis cs:647.872,10) node [right] {647.872 s};
+\draw[red] (axis cs:647.872,0) -- (axis cs:647.872,20) node [right] {647.872 s};
 \end{axis}
 \end{tikzpicture}
 }}%
