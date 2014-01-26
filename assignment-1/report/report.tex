@@ -81,13 +81,6 @@ The e-puck is a small (7 cm) open-source differential wheeled puck-shaped educat
 The E-puck model is available in Webots as a simulatable model, and it is used in this assignment as the hardware in which the swarm agents will run.
 An overview of the e-puck with its available sensors can be found in \vref{figure:e-puck}.
 
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.2]{e-puck_sensors_and_leds.png}
-\caption{E-puck robot with all sensors}
-\label{figure:e-puck}
-\end{figure}
-
 \part{The Proposed System}
 \label{part:improved-system}
 
@@ -198,6 +191,11 @@ In this scenario there are two food boxes that need to be collected by the swarm
 
 Adapting the improved swarm agent from part \ref{part:improved-system}, a new behaviour is added to the subsumption ladder: a jiggling unstuck-ing anti-stagnation behaviour.
 
+\input{subsumption2.tex}
+
+\subsection{Unstick}
+This behaviour is implemented to introduce jiggle to the system. It is triggered at random, and when triggered, subsumes all other behaviours. 
+
 \section{Simulation Results}
 
 These two versions of the swarm agent was run in a series of simulation experiments in Webots. The simulation setup was nearly identical to the setup in section \vref{section:first-sim-results}, with the exception being that there were two independent but identical lit food boxes instead of one.
@@ -216,14 +214,6 @@ The median solution time for the advanced agent in the simulations was $ 647.872
 Of these seconds, the vast majority were typically spent finding and moving the second food box.
 
 \input{measurements/histogram.tex}
-
-
-\begin{figure}[H]
-\centering
-\includegraphics[scale=0.5]{one-box-world.png}
-\caption{World used in the simulation for Table 1}
-\end{figure}
-
 
 \newpage
 \pagenumbering{gobble}
