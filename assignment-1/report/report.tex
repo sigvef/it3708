@@ -1,16 +1,19 @@
-\documentclass{article}
+\documentclass[a4paper]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage{fancyhdr}
 \usepackage{float}
-\usepackage{tikz}
 \usepackage{graphicx}
 \usepackage{url}
+\usepackage[margin=1em]{subfig}
+\usepackage{pgfplots}
+\usepackage{tikz}
 \usetikzlibrary{arrows}
 \usetikzlibrary{positioning}
 \pagestyle{fancy}
 \graphicspath{{img/}}
 \renewcommand\thepart{\Alph{part}}
+\pgfplotsset{compat=1.5}
 
 \newcommand\TODO[1]{\textcolor{red}{TODO:#1}}
 \newcommand\todo[1]{\TODO{#1}}
@@ -156,6 +159,8 @@ blabalbal
 \end{tabular}
 \end{table}
 
+\input{measurements/histogram.tex}
+
 
 \newpage
 %\part{Appendix}
@@ -165,6 +170,7 @@ blabalbal
 %\includegraphics[scale=0.5]{one-box-world.png}
 %\caption{World used in the simulation for Table 1}
 %\end{figure}
+
 
 \newpage
 \part{References}

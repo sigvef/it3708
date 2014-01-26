@@ -1,0 +1,71 @@
+\begin{figure}[H]%
+\centering
+\subfloat[Randomly generated scenario with 1 food box and 7 epuck robots without the unstick behaviour.]{{%
+\begin{tikzpicture}%
+\begin{axis}[
+width=\textwidth/2,
+ybar interval,
+xlabel=Time to completion in seconds,
+ylabel=Number of runs,
+xtick=,% reset from ybar interval
+xticklabel={$\pgfmathprintnumber\nexttick$}
+]
+\addplot+[hist={data={x}, bins=20, data max=2000, intervals=false}]%
+file {measurements/1-box-7-epucks-without-unstick-random-placements-b35d4c771d6b71e88f73cf833ed8067aad97f4ff.txt};%
+\draw[red] (axis cs:57.8786,0) -- (axis cs:57.8786,67) node [right=0.15cm] {57.8786 s};%
+\end{axis}%
+\end{tikzpicture}%
+}}%
+\subfloat[Randomly generated scenario with 1 food box and 7 epuck robots without the unstick behaviour (zoomed in).]{{
+\begin{tikzpicture}
+\begin{axis}[
+width=\textwidth/2,
+ybar interval,
+xlabel=Time to completion in seconds,
+ylabel=Number of runs,
+xtick=,% reset from ybar interval
+xticklabel={$\pgfmathprintnumber\nexttick$}
+]
+\addplot+[hist={data={x}, bins=20, data max=250, intervals=false}]
+file {measurements/1-box-7-epucks-without-unstick-random-placements-b35d4c771d6b71e88f73cf833ed8067aad97f4ff.txt};
+\draw[red] (axis cs:57.8786,0) -- (axis cs:57.8786,12) node [right] {57.8786 s};
+\end{axis}
+\end{tikzpicture}
+}}%
+\qquad
+\subfloat[Randomly generated scenario with 2 food boxes and 7 epuck robots without the unstick behaviour.]{{
+\begin{tikzpicture}
+\begin{axis}[
+width=\textwidth/2,
+ybar interval,
+xlabel=Time to completion in seconds,
+ylabel=Number of runs,
+xtick=,% reset from ybar interval
+xticklabel={$\pgfmathprintnumber\nexttick$}
+]
+\addplot+[hist={data={x}, bins=20, data max=2000, intervals=false}]
+file {measurements/2-boxes-7-epucks-without-unstick-random-placement-465bdfd2a08ceaf31540354378515dfb0287f40f.txt};
+\draw[red] (axis cs:2000,0) -- (axis cs:2000,40) node [left] {Infinity};
+\end{axis}
+\end{tikzpicture}
+}}%
+\subfloat[Randomly generated scenario with 2 food box and 7 epuck robots with the unstick behaviour.]{{
+\begin{tikzpicture}
+\begin{axis}[
+width=\textwidth/2,
+ybar interval,
+xlabel=Time to completion in seconds,
+ylabel=Number of runs,
+xtick=,% reset from ybar interval
+xticklabel={$\pgfmathprintnumber\nexttick$}
+]
+\addplot+[hist={data={x}, bins=20, data max=2000, intervals=false}]
+file {measurements/2-boxes-7-epucks-with-unstick-random-placement-898fc092f762f5a17d5875ae62bb9baff5335149.txt};
+\draw[red] (axis cs:582.295,0) -- (axis cs:582.295,10) node [right] {582.295 s};
+\end{axis}
+\end{tikzpicture}
+}}%
+
+\caption{Task completion measurement time distributions for different scenarios. Each scenario was simulated 75 times. The red line indicates the mean time.}
+\label{figure:task-completion-times}
+\end{figure}
