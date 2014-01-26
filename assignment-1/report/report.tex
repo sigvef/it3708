@@ -64,49 +64,51 @@ The highest stimulated behaviour is acted upon ~\cite{berg-karud}.
 \caption{E-puck robot with all sensors}
 \end{figure}
 
-\subsection{Swarm intelligence in nature}
+\part{The Proposed System}
 
-\subsection{Brooks Architecture}
-The implemented system is based on an AI concept called subsumption architecture.
-Subsumption architecture was first described by Rodney Brooks in 1986~\cite{brooks}.
-The idea behind subsumption architecture came from insects.
-Insects though with relatively little computational power, is able to walk, avoid obstacles, and make desicions faster than any robot created.
-The architecture is divided into layers called: "the levels of competence".
-Each layer is  independent of each other, where the higher levels are capable of overriding the lower.~\cite{mwarnerwu}
-The highest stimulated behaviour is acted upon ~\cite{berg-karud}.
+\section{Description}
 
-\subsection{Our implementation}
-We divided our "levels of competence" into six independent behaviours; Wander, Avoid obstacles, Converge, Retrieve, and Reposition.
+The initial proposed system is based on the subsumption approach suggested in \cite{assignment}.
+The "levels of competence" are divided into six independent behaviours: Wander, Avoid obstacles, Converge, Retrieve, and Reposition.
 The lower levels have a higher priority and are able to override the higher ones.
+Figure \vref{figure:subsumption} shows the subsumption hierarchy.
+
 \input{subsumption.tex}
 
+\subsection{Behaviours}
+
+Each of the behaviours of the proposed system are described in detail here.
+
 \subsubsection{Wander}
-Wander is our default behaviour, it basically tells the robot to run straight forward.
-It has no stimulus, when no other behaviour is stimulated, the robot acts on this behaviour
+Wander is the default behaviour.
+It tells the robot to move straight forward as fast as possible, regardless of input.
 
 \subsubsection{Avoid obstacles}
-The avoid obstacles behaviour is triggered when the epucks proximity sensors rise above a certain threshold, indicating that it's close to or about to hit a wall.
-
-The rotational angle of the differential wheels is then set proportional to the difference between the amount of obstacles on either side of the robot, such that it turns away from the observed obstacles.
-
+This behaviour is intended to save the agent from harmful collisions.
+It is triggered when the epucks proximity sensors rise above a certain threshold, indicating that it's close to or about to hit a wall.
+The rotational angle of the robot is then set proportional to the difference between the amount of obstacles on either side of the robot.
 The closer the wall is on the right side, the harder the epuck will turn to the left, and vice versa.
+This technique is called Braitenberg avoidance~\cite{braitenberg}.
 
 \subsubsection{Converge}
-The converge behaviour is triggered when the sum of the epucks light sensors rise above a certain threshold, indicating that food is nearby.
-
-The rotational angle of the differential wheels is set in proportion to the amount of light on either side, such that the robot heads towards the light.
+This behaviour is intended to let agents converge on a food location.
+It is triggered when the sum of the epucks light sensors rise above a certain threshold, indicating that food is nearby.
+The rotational angle of the robot is set in proportion to the amount of light on either side, making the robot heads towards the food, aligning it with the surface normal of the food for maximum force.
 
 \subsubsection{Retrieve}
-The retrieve behaviour is triggered when the epuck detects that food is straight ahead, but that it's not yet close enough to begin retrieval.
-
-The behaviour will try to align the robot with the surface normal of the object, so that it's driving directly into the food for maximum force
+This behaviour is intended to let agents push food to a goal area.
+It is triggered when the agent detects that food is right infront of it.
+It subsumes the obstacle avoidance behaviour, letting the agent push the food.
 
 \subsubsection{Reposition}
-The reposition behaviour is enabled when the epuck has found the food, and is trying to bring it home.
+This behaviour is intended to let agents to move out of potentially poor retrieval positions.
+It is enabled when the agent has found food, and is trying to bring it home.
 
-A problem that commonly occurs is that the epucks are trying to push the food from opposing sides, and therefore getting nowhere. The reposition behaviour simply says that after N seconds, you will try to push somewhere else. To reward bots which are "working together" on one side, N increases proportionally with the amount of robot observed directly to the sides. 
+A problem that commonly occurs is that the agents are trying to push the food from opposing sides, and therefore getting nowhere.
+The reposition behaviour simply says that after $ N $ seconds of retrieval, the agent will try to push somewhere else nearby.
+To reward agents who are pushing together in the same direction, $ N $ increases proportionally with the amount of other agents observed directly besides the agent.
 
-This TCP-Exponential-back-off-inspired behaviour allows us to reposition the epucks without needing to now for how long the epucks behaviour has been for naught.
+This exponential backoff-inspired behaviour allows the agents to reposition themselves reasonably efficiently.
 
 \section{Simulation Results}
 \begin{table}[H]
