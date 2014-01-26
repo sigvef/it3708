@@ -45,19 +45,24 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 
 \part{Introduction}
 
-As demands for ever-growing 
-Swarm robotics is a field that capitalizes on self-organization to generate interesting global patterns from interactions among relatively simple robots, all in the absence of centralized control. 
+``Swarm robotics is a field that capitalizes on self-organization to generate interesting global patterns from interactions among relatively simple robots, all in the absence of centralized control.''~\cite{course-page}
 
-\section{Brooks Architecture}
-The implemented system is based on an AI concept called subsumption architecture.
-Subsumption architecture was first described by Rodney Brooks in 1986~\cite{brooks}.
-The idea behind subsumption architecture came from insects.
-Insects though with relatively little computational power, is able to walk, avoid obstacles, and make desicions faster than any robot created.
-The architecture is divided into layers called: "the levels of competence".
-Each layer is  independent of each other, where the higher levels are capable of overriding the lower.~\cite{mwarnerwu}
-The highest stimulated behaviour is acted upon ~\cite{berg-karud}.
+This report presents a homogenous robotic swarm that can identify interesting objects and push them to desired areas.
+The individual agent is inspired by ant behaviour.
+
+
+
+\section{Subsumption Architecture}
+The implemented system is based on an AI concept called subsumption.
+The subsumption architecture was first described by Rodney Brooks in 1986~\cite{brooks}, and is also called Brooks' Architecture.
+The idea behind Brooks' Architecture is inspired by insect behaviour.
+Insects, although they have relatively small amounts of computational power, are able to walk, avoid obstacles, and make complex decicions at impressive speeds.
+The architecture is divided into behavioural layers called: "the levels of competence".\todo{cite where "the levels of competence" is from}.
+Each layer is independent of the others, but the higher levels are capable of overriding the lower.~\cite{mwarnerwu}
+This way, complex behaviour can be composed of many small reactive agent behaviours.
 
 \section{Webots}
+
 \section{The Epuck}
 
 \begin{figure}[H]
