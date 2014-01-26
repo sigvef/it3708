@@ -111,33 +111,6 @@ The reposition behaviour simply says that after $ N $ seconds of retrieval, the 
 This exponential backoff-inspired behaviour allows the agents to reposition themselves reasonably efficiently.
 
 \section{Simulation Results}
-\begin{table}[H]
-\centering
-\begin{tabular}{ c | c | p{5cm}}
-\hline No & Time & Notes \\ \hline
- 1 & 42:56 &  \\ \hline
- 2 & 38:21 & \\ \hline
- 3 & 33:54 & Close to optimal run \\ \hline
-4 & - & Two robots got stuck between the box and the wall. Therefore the robots was not able to finish the objective \\ \hline
-5 & 36:35 & \\ \hline
-6	& 52:13 & The robots did change pushing direction in the middle of the simulation \\ \hline
-7 & 59:81 & \\ \hline
-8 & 52:83 & \\ \hline
-9 & 3:32:01 &  The robots divided into two groups and pushed from opposite sides \\ \hline
-10 & 1:42:84 & The robots divided into two groups and pushed from oppsite sides, though the stagnation got solved earlier than simulation 9 \\
-\end{tabular}
-\caption{One box problem runs}
-\end{table}
-
-
-\begin{table}
-\centering
-\begin{tabular}{ l | r}
-\hline Number of runs & Avg. Time \\ \hline
-9 & ?:??:?? \\
-\end{tabular}
-\caption{ Average time of One box problem runs}
-\end{table}
 
 
 \subsection{Observed weaknesses}
@@ -153,19 +126,7 @@ This exponential backoff-inspired behaviour allows the agents to reposition them
 \section{Description}
 \newpage
 \section{Simulation Results}
-\begin{table}[H]
-\centering
-\begin{tabular}{ c | c | p{5cm}}
-\hline No & Time & Notes \\ \hline
 
-1 & 5:01:96 & The robots were trying to push a box that allready was retrieved \\ \hline
-2 & 2:38:43 & \\ \hline
-3 & 5:20:45 & Same as simulation number 1 \\ \hline
-4
-
-
-\end{tabular}
-\end{table}
 
 \input{measurements/histogram.tex}
 
