@@ -4,6 +4,7 @@
 \usepackage{fancyhdr}
 \usepackage{float}
 \usepackage{graphicx}
+\usepackage{varioref}
 \usepackage{url}
 \usepackage[margin=1em]{subfig}
 \usepackage{pgfplots}
@@ -43,9 +44,19 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 
 \setcounter{page}{1}
 
-\part{The Proposed System}
+\part{Introduction}
 
-\section{Description}
+\section{Brooks Architecture}
+The implemented system is based on an AI concept called subsumption architecture.
+Subsumption architecture was first described by Rodney Brooks in 1986~\cite{brooks}.
+The idea behind subsumption architecture came from insects.
+Insects though with relatively little computational power, is able to walk, avoid obstacles, and make desicions faster than any robot created.
+The architecture is divided into layers called: "the levels of competence".
+Each layer is  independent of each other, where the higher levels are capable of overriding the lower.~\cite{mwarnerwu}
+The highest stimulated behaviour is acted upon ~\cite{berg-karud}.
+
+\section{Webots}
+\section{The Epuck}
 
 \begin{figure}[H]
 \centering
