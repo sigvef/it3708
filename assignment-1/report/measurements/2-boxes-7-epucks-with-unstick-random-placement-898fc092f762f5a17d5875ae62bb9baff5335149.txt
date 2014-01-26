@@ -1,75 +1,75 @@
-[simulation-runner] Finished task in 843.616s
-[simulation-runner] Finished task in 305.856s
-[simulation-runner] Finished task in 554.304s
-[simulation-runner] Finished task in 891.936s
-[simulation-runner] Finished task in 299.136s
-[simulation-runner] Finished task in 57.792s
-[simulation-runner] Finished task in 218.784s
-[simulation-runner] Finished task in 119.392s
-[simulation-runner] Finished task in 225.728s
-[simulation-runner] Finished task in 330.208s
-[simulation-runner] Finished task in 429.12s
-[simulation-runner] Finished task in 623.648s
-[simulation-runner] Finished task in 522.72s
-[simulation-runner] Finished task in 72.992s
-[simulation-runner] Finished task in 273.664s
-[simulation-runner] Finished task in 151.2s
-[simulation-runner] Finished task in 287.584s
-[simulation-runner] Finished task in 611.744s
-[simulation-runner] Finished task in 501.536s
-[simulation-runner] Finished task in 707.648s
-[simulation-runner] Finished task in 852.64s
-[simulation-runner] Finished task in 668.96s
-[simulation-runner] Finished task in 205.088s
-[simulation-runner] Finished task in 509.184s
-[simulation-runner] Finished task in 1926.656s
-[simulation-runner] Finished task in 277.856s
-[simulation-runner] Finished task in 372.672s
-[simulation-runner] Finished task in 751.936s
-[simulation-runner] Finished task in 468.16s
-[simulation-runner] Finished task in 388.736s
-[simulation-runner] Finished task in 275.84s
-[simulation-runner] Finished task in 307.712s
-[simulation-runner] Finished task in 195.424s
-[simulation-runner] Finished task in 268.864s
-[simulation-runner] Finished task in 723.168s
-[simulation-runner] Finished task in 276.608s
-[simulation-runner] Finished task in 406.688s
-[simulation-runner] Finished task in 647.872s
-[simulation-runner] Finished task in 834.784s
-[simulation-runner] Finished task in 1634.72s
-[simulation-runner] Finished task in 654.88s
-[simulation-runner] Finished task in 318.144s
-[simulation-runner] Finished task in 318.656s
-[simulation-runner] Finished task in 806.464s
-[simulation-runner] Finished task in 193.472s
-[simulation-runner] Finished task in 202.272s
-[simulation-runner] Finished task in 253.28s
-[simulation-runner] Finished task in 439.072s
-[simulation-runner] Finished task in 633.248s
-[simulation-runner] Finished task in 195.168s
-[simulation-runner] Finished task in 223.008s
-[simulation-runner] Finished task in 1405.184s
-[simulation-runner] Finished task in 703.52s
-[simulation-runner] Finished task in 965.728s
-[simulation-runner] Finished task in 479.648s
-[simulation-runner] Finished task in 224.096s
-[simulation-runner] Finished task in 737.824s
-[simulation-runner] Finished task in 796.256s
-[simulation-runner] Finished task in 1725.216s
-[simulation-runner] Finished task in 530.944s
-[simulation-runner] Finished task in 337.504s
-[simulation-runner] Finished task in 927.424s
-[simulation-runner] Finished task in 2048.8s
-[simulation-runner] Finished task in 1208.736s
-[simulation-runner] Finished task in 198.72s
-[simulation-runner] Finished task in 419.36s
-[simulation-runner] Finished task in 248.736s
-[simulation-runner] Finished task in 1486.304s
-[simulation-runner] Finished task in 619.328s
-[simulation-runner] Finished task in 916.736s
-[simulation-runner] Finished task in 786.208s
-[simulation-runner] Finished task in 228.0s
-[simulation-runner] Finished task in 886.592s
-[simulation-runner] Finished task in 877.888s
-[simulation-runner] Finished task in 702.304s
+843.616
+305.856
+554.304
+891.936
+299.136
+57.792
+218.784
+119.392
+225.728
+330.208
+429.12
+623.648
+522.72
+72.992
+273.664
+151.2
+287.584
+611.744
+501.536
+707.648
+852.64
+668.96
+205.088
+509.184
+1926.656
+277.856
+372.672
+751.936
+468.16
+388.736
+275.84
+307.712
+195.424
+268.864
+723.168
+276.608
+406.688
+647.872
+834.784
+1634.72
+654.88
+318.144
+318.656
+806.464
+193.472
+202.272
+253.28
+439.072
+633.248
+195.168
+223.008
+1405.184
+703.52
+965.728
+479.648
+224.096
+737.824
+796.256
+1725.216
+530.944
+337.504
+927.424
+2048.8
+1208.736
+198.72
+419.36
+248.736
+1486.304
+619.328
+916.736
+786.208
+228.0
+886.592
+877.888
+702.304
