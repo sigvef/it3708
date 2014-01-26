@@ -79,6 +79,7 @@ This way, complex behaviour can be composed of many small reactive agent behavio
 \end{figure}
 
 \part{The Proposed System}
+\label{part:improved-system}
 
 \section{Description}
 
@@ -169,9 +170,26 @@ As hoped, the improved system presents a considerable improvement over the origi
 Indeed, the median completion time of the improved swarm agent is almost halved from the original agent, bringing it down to a somewhat impressive $ 21.344 $ seconds.
 
 \part{A More Advanced Architecture}
+\label{part:advanced-system}
 
 \section{Description}
+
 \section{Simulation Results}
+
+These two versions of the swarm agent was run in a series of simulation experiments in Webots. The simulation setup was nearly identical to the setup in section \vref{section:first-sim-results}, with the exception being that there were two independent but identical lit food boxes instead of one.
+
+This simulation was run 75 times with the improved swarm agent presented in part \vref{part:improved-system}, and 75 times with the advanced system with the unstick behaviour presented in part \vref{part:advanced-system}.
+The results from these simulations can be seen in figure \vref{figure:third-hist} and figure \vref{figure:fourth-hist}, respectively.
+
+The simulations with the improved agent from \ref{part:improved-system}, without the unstick behaviour, were dominated by runs where the swarm was not able to complete its task.
+Often the swarm would get stuck in a locked position, and the simulation would have to be aborted prematurely.
+
+In the simulations where the swarm did finish their task, they finished quite quickly - using only one third of the time of the advanced system with the unstuck behaviour.
+This is a clear example of survior bias.
+
+The simulations with the advanced agent from \ref{part:advanced-system}, with the unstick behaviour, fared much better.
+The median solution time for the advanced agent in the simulations was $ 647.872 $ seconds.
+Of these seconds, the vast majority were tyically spent finding and moving the second food box.
 
 \input{measurements/histogram.tex}
 
