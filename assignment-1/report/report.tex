@@ -154,7 +154,7 @@ This does not entice teamwork, as robots who by chance are pushing on the same s
 This results in robots not intentionally clustering together, making food retrieval more luck-of-the-draw based than a coordinated operation.
 
 \subsubsection{Getting stuck}
-In this implementation, the robots have a tendency to get stuck in a few different ways:
+In this implementation, the robots have a tendency to get stuck in a few different ways. Fortunately these issues mainly manifested themselves after the pushing of the box into the wall, therefore not interfering with our success metrics:
 
 \begin{itemize}
 	\item Two robots driving straight into each other
@@ -166,9 +166,18 @@ In this implementation, the robots have a tendency to get stuck in a few differe
 \part{An Improved System}
 
 \section{Description}
+The initial system had some issues with enticing teamwork and preventing robots from having love affairs with one another instead of retrieving food for the starving epuck-population at home.
+
+To resolve these issues we introduced rewards for collaboration when retrieving food, but decided against implementing anti-stuck behaviour as it was not interfering with our goals at this time.
+
+\subsection{The improved reposition behaviour}
+The reposition behaviour has been modified to reward agents working together. This is done by increasing the allotted retrieval-time in proportion to the number of neighbouring robots.
+
+Allowing robots to push for longer periods of time in the vicinity of neighbours tends to converge them together on the same side. Robots trying to go solo will reposition themselves until they realign with the rest of the pack.
+
+The improved behaviour had a noticeable effect on the average running time of our simulations, as shown in the graphs below.
 
 \section{Simulation Results}
-
 This version of the swarm agent was run in a series of simulation experiments in Webots identical to the simulations in section \vref{section:first-sim-results}.
 
 This simulation was run 75 times.
@@ -208,7 +217,6 @@ Of these seconds, the vast majority were typically spent finding and moving the 
 \caption{World used in the simulation for Table 1}
 \end{figure}
 
-\input{subsumption2.tex}
 
 \newpage
 \pagenumbering{gobble}
