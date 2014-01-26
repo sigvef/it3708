@@ -81,23 +81,23 @@ Each of the behaviours of the proposed system are described in detail here.
 
 \subsubsection{Wander}
 Wander is the default behaviour.
-It tells the robot to move straight forward as fast as possible, regardless of input.
+It tells the agent to move straight forward as fast as possible, regardless of input.
 
 \subsubsection{Avoid obstacles}
 This behaviour is intended to save the agent from harmful collisions.
-It is triggered when the epucks proximity sensors rise above a certain threshold, indicating that it's close to or about to hit a wall.
-The rotational angle of the robot is then set proportional to the difference between the amount of obstacles on either side of the robot.
-The closer the wall is on the right side, the harder the epuck will turn to the left, and vice versa.
+It is triggered when the agent's proximity sensors rise above a certain threshold, indicating that it's close to or about to hit a wall.
+The rotational angle of the agent is then set proportional to the difference between the amount of obstacles on either side of the agent.
+The closer the wall is on the right side, the harder the agent will turn to the left, and vice versa.
 This technique is called Braitenberg avoidance~\cite{braitenberg}.
 
 \subsubsection{Converge}
 This behaviour is intended to let agents converge on a food location.
-It is triggered when the sum of the epucks light sensors rise above a certain threshold, indicating that food is nearby.
-The rotational angle of the robot is set in proportion to the amount of light on either side, making the robot heads towards the food, aligning it with the surface normal of the food for maximum force.
+It is triggered when the sum of the agent's light sensors rise above a certain threshold, indicating that food is nearby.
+The rotational angle of the agent is set in proportion to the amount of light on either side, making the agent heads towards the food, aligning it with the surface normal of the food for maximum force.
 
 \subsubsection{Retrieve}
 This behaviour is intended to let agents push food to a goal area, and is triggered when the agent detects that food is right in front of it.
-It will try to align the robot with the surface-normal of the object, such that maximum force will be exerted upon it.
+It will try to align the agent with the surface-normal of the object, such that maximum force will be exerted upon it.
 
 It subsumes the obstacle avoidance behaviour, letting the agent push the food.
 
