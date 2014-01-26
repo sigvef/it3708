@@ -96,8 +96,9 @@ It is triggered when the sum of the epucks light sensors rise above a certain th
 The rotational angle of the robot is set in proportion to the amount of light on either side, making the robot heads towards the food, aligning it with the surface normal of the food for maximum force.
 
 \subsubsection{Retrieve}
-This behaviour is intended to let agents push food to a goal area.
-It is triggered when the agent detects that food is right infront of it.
+This behaviour is intended to let agents push food to a goal area, and is triggered when the agent detects that food is right in front of it.
+It will try to align the robot with the surface-normal of the object, such that maximum force will be exerted upon it.
+
 It subsumes the obstacle avoidance behaviour, letting the agent push the food.
 
 \subsubsection{Reposition}
