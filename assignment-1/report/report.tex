@@ -124,8 +124,17 @@ This exponential backoff-inspired behaviour allows the agents to reposition them
 
 \section{Simulation Results}
 
+This version of the swarm agent was run in a series of simulation experiments in Webots.
+7 swarm robots were randomly placed in a $ 1.5m \times 1.5m $ square world together with a randomly placed lit food block.
+For each experiment, the time taken from world setup was complete until the swarm managed to transport the food to an edge of the world was measured.
+
+This simulation was run 75 times.
+The results of the simulation can be seen in figure \vref{figure:first-hist}.
 
 \subsection{Observed weaknesses}
+
+During observation of the 75 simulation runs, several weaknesses of the agent system were identified; amongst them: low levels of emergent teamwork, and getting stuck.
+
 \subsubsection{No incentive for teamwork}
 In the current architecture, the reposition behaviour blindly sends the robot away after it has been pushing the food for a fixed amount of time.
 
@@ -155,8 +164,8 @@ In this implementation, the robots have a tendency to get stuck in a few differe
 \section{Description}
 \section{Simulation Results}
 
-
 \input{measurements/histogram.tex}
+
 
 \begin{figure}[H]
 \centering
