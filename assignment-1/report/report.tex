@@ -95,14 +95,9 @@ The behaviour will try to align the robot with the surface normal of the object,
 \subsubsection{Reposition}
 The reposition behaviour is enabled when the epuck has found the food, and is trying to bring it home.
 
-There's a chance that pucks may be hindering progress by pushing o, and that some of the pucks will need to realign themselves if they wish to return home triumphantly with food.
-We solved this problem as follows:
+A problem that commonly occurs is that the epucks are trying to push the food from opposing sides, and therefore getting nowhere. The reposition behaviour simply says that after N seconds, you will try to push somewhere else. To reward bots which are "working together" on one side, N increases proportionally with the amount of robot observed directly to the sides. 
 
-When an epuck realizes it's driving into the food, it will blindly drive straight ahead
-
-
- and a realign is needed to get anywhere at all.
- Our reposition behaviour implements a stateless way to realign the epuck after some time has passed.
+This TCP-Exponential-back-off-inspired behaviour allows us to reposition the epucks without needing to now for how long the epucks behaviour has been for naught.
 
 \section{Simulation Results}
 \begin{table}[H]
