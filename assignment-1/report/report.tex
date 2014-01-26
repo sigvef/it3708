@@ -31,6 +31,7 @@
 }
 
 \begin{document}
+\pagenumbering{roman}
 
 \maketitle
 \thispagestyle{empty}
@@ -41,7 +42,12 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 }
 
 \newpage
+
+\tableofcontents
+
+\newpage
 \setcounter{page}{1}
+\pagenumbering{arabic}
 
 \part{Introduction}
 
@@ -83,8 +89,7 @@ Figure \vref{figure:subsumption} shows the subsumption hierarchy.
 \input{subsumption.tex}
 
 \subsection{Behaviours}
-
-Each of the behaviours of the proposed system are described in detail here.
+Each of the behaviours of the proposed system are independent reactive behaviours that map input sensor data to output actuators. The rest of this section describes each of the behaviours in detail.
 
 \subsubsection{Wander}
 Wander is the default behaviour.
