@@ -12,34 +12,29 @@
 \node[behaviour, below=1mm of wander] (avoid_obstacles) {Avoid Obstacles};
 \node[behaviour, below=1mm of avoid_obstacles] (converge) {Converge};
 \node[behaviour, below=1mm of converge] (retrieve) {Retrieve};
-\node[behaviour, below=1mm of retrieve] (realign) {Realign};
-\node[behaviour, below=1mm of realign] (reposition) {Reposition};
+\node[behaviour, below=1mm of retrieve] (reposition) {Reposition};
 
 \node[subsumption, right=5mm of avoid_obstacles] (avoid_obstacles_subsumption) {\tiny S};
 \node[subsumption, right=10mm of converge] (converge_subsumption) {\tiny S};
 \node[subsumption, right=15mm of retrieve] (retrieve_subsumption) {\tiny S};
-\node[subsumption, right=20mm of realign] (realign_subsumption) {\tiny S};
-\node[subsumption, right=25mm of reposition] (reposition_subsumption) {\tiny S};
+\node[subsumption, right=20mm of reposition] (reposition_subsumption) {\tiny S};
 \node[draw, right=5mm of reposition_subsumption] (actuators) {Actuators};
 
 \path[line] (sensors) |- (wander);
 \path[line] (sensors) |- (avoid_obstacles);
 \path[line] (sensors) |- (converge);
 \path[line] (sensors) |- (retrieve);
-\path[line] (sensors) |- (realign);
 \path[line] (sensors) |- (reposition);
 
 \path[line] (avoid_obstacles) |- (avoid_obstacles_subsumption);
 \path[line] (converge) |- (converge_subsumption);
 \path[line] (retrieve) |- (retrieve_subsumption);
-\path[line] (realign) |- (realign_subsumption);
 \path[line] (reposition) |- (reposition_subsumption);
 
 \path[line] (wander) -| (avoid_obstacles_subsumption);
 \path[line] (avoid_obstacles_subsumption) -| (converge_subsumption);
 \path[line] (converge_subsumption) -| (retrieve_subsumption);
-\path[line] (retrieve_subsumption) -| (realign_subsumption);
-\path[line] (realign_subsumption) -| (reposition_subsumption);
+\path[line] (retrieve_subsumption) -| (reposition_subsumption);
 \path[line] (reposition_subsumption) -- (actuators);
 
 \end{tikzpicture}
