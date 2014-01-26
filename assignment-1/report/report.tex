@@ -50,6 +50,7 @@ The purpose of the homework module is to ``understand swarm behaviour by impleme
 \pagenumbering{arabic}
 
 \part{Introduction}
+\label{part:proposed-system}
 
 ``Swarm robotics is a field that capitalizes on self-organization to generate interesting global patterns from interactions among relatively simple robots, all in the absence of centralized control.''~\cite{course-page}
 
@@ -123,6 +124,7 @@ The reposition behaviour simply says that after $ N $ seconds of retrieval, the 
 This exponential backoff-inspired behaviour allows the agents to reposition themselves reasonably efficiently.
 
 \section{Simulation Results}
+\label{section:first-sim-results}
 
 This version of the swarm agent was run in a series of simulation experiments in Webots.
 7 swarm robots were randomly placed in a $ 1.5m \times 1.5m $ square world together with a randomly placed lit food block.
@@ -156,9 +158,16 @@ In this implementation, the robots have a tendency to get stuck in a few differe
 
 \section{Description}
 
-
-
 \section{Simulation Results}
+
+This version of the swarm agent was run in a series of simulation experiments in Webots identical to the simulations in section \vref{section:first-sim-results}.
+
+This simulation was run 75 times.
+The results of the simulation can be seen in figure \vref{figure:second-hist}.
+
+As hoped, the improved system presents a considerable improvement over the original system presented in part \vref{part:proposed-system}.
+Indeed, the median completion time of the improved swarm agent is almost halved from the original agent, bringing it down to a somewhat impressive $ 21.344 $ seconds.
+
 \part{A More Advanced Architecture}
 
 \section{Description}
