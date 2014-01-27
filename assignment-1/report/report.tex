@@ -190,8 +190,15 @@ In this scenario there are two food boxes that need to be collected by the swarm
 Adapting the improved swarm agent from part \ref{part:improved-system}, a new behaviour is added to the subsumption ladder: an anti-stagnation behaviour called unstick.
 An overview of the behaviour subsumption scheme for the advanced system can be found in figure \vref{figure:advanced-subsumption}.
 
+The addition of the unstick behaviour ensures that the agents move back and forth between the two food boxes now and then at random.
+Whoever is on the same box is working on the same team.
+This creates an implicit organization into teams that does not rely on sensors or distinguishing actuators such as team colors, making the architecture more resilient to failure.
+
 \subsection{Unstick}
 This behaviour is implemented to introduce jiggle to the system. It is triggered at random, and when triggered, subsumes all other behaviours. 
+
+Adding unstick does not affect the single box scenario greatly, as it only introduces random jiggle.
+The randomness increases the variance of the completion times in a one-box-scenario, but the average completion time remains the same.
 
 \input{advanced-subsumption.tex}
 
